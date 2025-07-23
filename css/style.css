@@ -1,6 +1,5 @@
 /* === style.css === */
 
-/* Import font */
 @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
 
 * {
@@ -12,52 +11,56 @@
 
 body {
   font-family: 'Zen Dots', sans-serif;
-  background-color: #0f0f0f;
+  background: linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 100%);
   color: #fff;
+  overflow-x: hidden;
 }
 
+/* Background container */
 .background {
-  background: url('../images/background.jpg') no-repeat center center/cover;
-  width: 100%;
   min-height: 100vh;
+  background: url('../images/background.jpg') no-repeat center center/cover;
   position: relative;
-  z-index: 1;
 }
 
 /* Navbar */
 .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 60px;
-  background: rgba(0, 0, 0, 0.7);
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  padding: 15px 50px;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
 }
 
 .nav-links {
-  list-style: none;
   display: flex;
-  gap: 30px;
+  gap: 40px;
+  list-style: none;
 }
 
 .nav-links li a {
-  color: #fff;
   text-decoration: none;
-  transition: all 0.3s ease;
+  color: #eee;
+  font-size: 14px;
+  letter-spacing: 2px;
   position: relative;
+  transition: all 0.3s;
 }
 
+/* Hover effect with katana-style underline */
 .nav-links li a::after {
   content: '';
   position: absolute;
-  width: 0%;
-  height: 2px;
-  background: red;
   left: 0;
-  bottom: -5px;
-  transition: 0.4s;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: crimson;
+  transition: 0.4s ease;
 }
 
 .nav-links li a:hover::after {
@@ -65,113 +68,125 @@ body {
 }
 
 .signup-btn a {
-  padding: 10px 20px;
-  background: red;
+  background: crimson;
   color: #fff;
-  border-radius: 5px;
+  padding: 10px 18px;
+  border-radius: 30px;
+  font-size: 13px;
   text-decoration: none;
-  transition: background 0.3s;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+  box-shadow: 0 0 10px crimson;
 }
 
 .signup-btn a:hover {
-  background: #c00;
+  background: #ff1a1a;
+  box-shadow: 0 0 20px crimson, 0 0 40px red;
 }
 
 /* Hero Section */
 .hero {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 100px 20px;
+  padding-top: 120px;
   position: relative;
+  z-index: 1;
 }
 
 .hero-image {
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
   height: 400px;
-  margin: 0 auto;
-  background: rgba(255,255,255,0.05);
-  border: 2px dashed #ff0000;
+  margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px dashed crimson;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #888;
-  font-size: 18px;
+  color: #999;
+  font-size: 14px;
 }
 
 .hero-text h1 {
   font-size: 36px;
-  margin: 30px 0 10px;
   color: #fff;
   text-shadow: 0 0 10px red;
+  margin-bottom: 10px;
 }
 
 .hero-text p {
-  font-size: 18px;
-  color: #aaa;
+  color: #ccc;
+  font-size: 16px;
+  margin-bottom: 20px;
 }
 
 .btn-glow {
-  margin-top: 20px;
-  display: inline-block;
-  padding: 10px 30px;
+  padding: 12px 30px;
   color: #fff;
   background: transparent;
-  border: 2px solid red;
+  border: 2px solid crimson;
   border-radius: 5px;
   text-decoration: none;
   transition: 0.3s;
-  box-shadow: 0 0 10px red;
+  box-shadow: 0 0 10px crimson;
 }
 
 .btn-glow:hover {
-  background: red;
-  box-shadow: 0 0 20px red, 0 0 40px red;
+  background: crimson;
+  box-shadow: 0 0 15px red, 0 0 30px crimson;
 }
 
 .platforms {
-  margin-top: 40px;
+  margin-top: 30px;
   display: flex;
   gap: 20px;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+}
+
+.platforms span {
+  color: #aaa;
+  font-size: 14px;
 }
 
 .platforms img {
-  height: 30px;
+  height: 28px;
   filter: grayscale(100%) brightness(1.3);
 }
 
+/* Scrollable sections */
 .section {
-  padding: 100px 20px;
+  padding: 120px 20px;
   background: #111;
-  border-top: 1px solid #222;
   text-align: center;
 }
 
 .claim {
-  background: #1a1a1a;
+  background: #191919;
 }
 
-/* Responsive */
+/* Responsive styles */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
-    gap: 10px;
-    padding: 20px;
+    gap: 15px;
+    padding: 10px;
   }
   .nav-links {
     flex-direction: column;
-    align-items: center;
+    gap: 10px;
+  }
+  .hero {
+    padding-top: 150px;
   }
   .hero-image {
     height: 250px;
   }
   .hero-text h1 {
-    font-size: 28px;
+    font-size: 24px;
   }
 }
